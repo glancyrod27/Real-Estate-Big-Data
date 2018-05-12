@@ -1,0 +1,36 @@
+//CREATE TABLES
+
+create external table 311_2009 (precincts int, numOfComp double) row format delimited fields terminated by ',' location '/user/cloudera/impala_311/2009';
+create external table 311_2010 (precincts int, numOfComp double) row format delimited fields terminated by ',' location '/user/cloudera/impala_311/2010';
+create external table 311_2011 (precincts int, numOfComp double) row format delimited fields terminated by ',' location '/user/cloudera/impala_311/2011';
+create external table 311_2012 (precincts int, numOfComp double) row format delimited fields terminated by ',' location '/user/cloudera/impala_311/2012';
+
+create external table crime_2009 (precincts int, waCrime double) row format delimited fields terminated by ',' location '/user/cloudera/impala_crime/2009';
+create external table crime_2010 (precincts int, waCrime double) row format delimited fields terminated by ',' location '/user/cloudera/impala_crime/2010';
+create external table crime_2011 (precincts int, waCrime double) row format delimited fields terminated by ',' location '/user/cloudera/impala_crime/2011';
+create external table crime_2012 (precincts int, waCrime double) row format delimited fields terminated by ',' location '/user/cloudera/impala_crime/2012';
+
+create external table property_2009 (precincts int, propertyValue double) row format delimited fields terminated by ',' location '/user/cloudera/impala_property/2009';
+create external table property_2010 (precincts int, propertyValue double) row format delimited fields terminated by ',' location '/user/cloudera/impala_property/2010';
+create external table property_2011 (precincts int, propertyValue double) row format delimited fields terminated by ',' location '/user/cloudera/impala_property/2011';
+create external table property_2012 (precincts int, propertyValue double) row format delimited fields terminated by ',' location '/user/cloudera/impala_property/2012';
+
+[quickstart.cloudera:21000] > show tables;
+Query: show tables
++---------------+
+| name          |
++---------------+
+| 311_2009      |
+| 311_2010      |
+| 311_2011      |
+| 311_2012      |
+| crime_2009    |
+| crime_2010    |
+| crime_2011    |
+| crime_2012    |
+| property_2009 |
+| property_2010 |
+| property_2011 |
+| property_2012 |
++---------------+
+Fetched 12 row(s) in 0.10s

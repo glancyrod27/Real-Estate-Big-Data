@@ -1,0 +1,131 @@
+//Running Queries on 2009 Map-Reduce Results
+
+//Manhattan
+[quickstart.cloudera:21000] > SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 1 AND 34 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5;
+Query: select precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 1 AND 34 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 33        |
+| 23        |
+| 26        |
+| 7         |
+| 24        |
++-----------+
+Fetched 5 row(s) in 16.09s
+[quickstart.cloudera:21000] > SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 1 AND 34 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5;
+Query: select precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 1 AND 34 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 26        |
+| 7         |
+| 33        |
+| 23        |
+| 24        |
++-----------+
+Fetched 5 row(s) in 3.74s
+
+
+//Bronx
+[quickstart.cloudera:21000] > SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 40 AND 52 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5;
+Query: select precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 40 AND 52 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 49        |
+| 41        |
+| 52        |
+| 45        |
+| 47        |
++-----------+
+Fetched 5 row(s) in 4.52s
+[quickstart.cloudera:21000] > SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 40 AND 52 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5;
+Query: select precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 40 AND 52 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 50        |
+| 41        |
+| 45        |
+| 49        |
+| 48        |
++-----------+
+Fetched 5 row(s) in 3.74s
+
+
+//Brooklyn
+[quickstart.cloudera:21000] > SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 60 AND 94 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5;
+Query: select precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 60 AND 94 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 77        |
+| 69        |
+| 78        |
+| 94        |
+| 88        |
++-----------+
+Fetched 5 row(s) in 4.33s
+[quickstart.cloudera:21000] > SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 60 AND 94 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5;
+Query: select precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 60 AND 94 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 94        |
+| 78        |
+| 88        |
+| 69        |
+| 77        |
++-----------+
+Fetched 5 row(s) in 3.88s
+
+
+//Queens
+[quickstart.cloudera:21000] > SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 100 AND 115 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5;
+Query: select precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 100 AND 115 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 101       |
+| 106       |
+| 112       |
+| 108       |
+| 107       |
++-----------+
+Fetched 5 row(s) in 4.01s
+[quickstart.cloudera:21000] > SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 100 AND 115 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5;
+Query: select precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 100 AND 115 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 101       |
+| 112       |
+| 111       |
+| 108       |
+| 107       |
++-----------+
+Fetched 5 row(s) in 4.65s
+
+//Staten Island
+[quickstart.cloudera:21000] > SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 120 AND 125 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5;
+Query: select precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 120 AND 125 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY wacrime LIMIT 10) ORDER BY propertyvalue LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 122       |
+| 121       |
+| 120       |
++-----------+
+Fetched 3 row(s) in 4.86s
+[quickstart.cloudera:21000] > SELECT precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 120 AND 125 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5
+                            > ;
+Query: select precincts FROM crime_2009 WHERE precincts in (SELECT precincts FROM property_2009 WHERE propertyvalue!=0 AND precincts in (SELECT precincts FROM 311_2009 WHERE precincts BETWEEN 120 AND 125 AND numofcomp != 0 ORDER BY numofcomp LIMIT 20) ORDER BY propertyvalue LIMIT 10) ORDER BY wacrime LIMIT 5
++-----------+
+| precincts |
++-----------+
+| 121       |
+| 122       |
+| 120       |
++-----------+
+Fetched 3 row(s) in 4.62s
